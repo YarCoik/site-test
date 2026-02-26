@@ -93,6 +93,8 @@
       transition: transform var(--ease), box-shadow var(--ease);
     }
     .theme-toggle:hover { transform: translateY(-1px); box-shadow: var(--glow); }
+    .theme-toggle .theme-icon { width: 14px; height: 14px; margin-right: .45rem; vertical-align: -2px; display: inline-block; transform-origin: 50% 50%; }
+    .theme-toggle.is-animating .theme-icon { animation: spin-theme .55s cubic-bezier(.2,.8,.2,1); }
     .theme-toggle:focus-visible, .btn-main:focus-visible, .chip:focus-visible, .footer-links button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     .hero {
@@ -254,6 +256,7 @@
     .privacy-bubble[hidden] { display: none; }
     .privacy-bubble h4 { margin: 0 0 .45rem; text-transform: uppercase; font-family: Montserrat, Inter, sans-serif; letter-spacing: .06em; font-size: .9rem; }
 
+    @keyframes spin-theme { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
     @keyframes bubble-in { from { opacity:0; transform: translateY(-6px) scale(.98);} to { opacity:1; transform: translateY(0) scale(1);} }
     @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-23px); } }
     @keyframes float { 0%,100% { transform: translate(0,0);} 50% { transform: translate(-12px, 8px);} }
@@ -287,14 +290,14 @@
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z" stroke="currentColor" stroke-width="1.5"/><path d="m12 3 9 4.5-9 4.5L3 7.5 12 3Zm0 9v9" stroke="currentColor" stroke-width="1.5"/></svg>
         YARBLOX
       </a>
-      <button class="theme-toggle" id="theme-btn" type="button" aria-label="Переключить тему" aria-pressed="false">SHIFT_COLOR</button>
+      <button class="theme-toggle" id="theme-btn" type="button" aria-label="Переключить тему" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>SHIFT_COLOR</button>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
           <h1 class="hero-title" id="hero-title" data-aos="fade-up">Новый уровень<br><span>твоей игры</span></h1>
-          <p class="hero-copy" data-aos="fade-up" data-aos-delay="100">YarBLOX — премиум-расширение для Roblox с чистым brutalism-дизайном, быстрым откликом и гибкой кастомизацией под твой стиль игры.</p>
+          <p class="hero-copy" data-aos="fade-up" data-aos-delay="100">Yarblox — премиум-расширение для Roblox с чистым brutalism-дизайном, быстрым откликом и гибкой кастомизацией под твой стиль игры.</p>
           <div class="hero-cta" data-aos="fade-up" data-aos-delay="160">
             <div class="btn-wrapper">
               <span class="btn-shadow" aria-hidden="true"></span>
@@ -336,7 +339,7 @@
 
       <section class="stats" data-aos="fade-up" aria-label="Показатели Yarblox">
         <article class="stat-item"><div class="stat-num">5+</div><div class="stat-text">Игроков</div></article>
-        <article class="stat-item"><div class="stat-num">Quick Play</div><div class="stat-text">Быстродействие</div></article>
+        <article class="stat-item"><div class="stat-num">120+</div><div class="stat-text">Тем</div></article>
         <article class="stat-item"><div class="stat-num">99.9%</div><div class="stat-text">Стабильность</div></article>
       </section>
 
@@ -454,6 +457,9 @@
       });
 
       themeBtn.addEventListener('click', (event) => {
+        themeBtn.classList.remove('is-animating');
+        void themeBtn.offsetWidth;
+        themeBtn.classList.add('is-animating');
         html.style.setProperty('--x', `${event.clientX || innerWidth / 2}px`);
         html.style.setProperty('--y', `${event.clientY || innerHeight / 2}px`);
 
@@ -465,6 +471,10 @@
         html.classList.add('theme-animating');
         const transition = document.startViewTransition(toggleTheme);
         transition.finished.finally(() => html.classList.remove('theme-animating'));
+      });
+
+      themeBtn.addEventListener('animationend', () => {
+        themeBtn.classList.remove('is-animating');
       });
 
       window.addEventListener('pointermove', (event) => {
