@@ -248,8 +248,11 @@
     }
 
     .footer-links { display: flex; gap: .9rem; align-items: center; flex-wrap: wrap; justify-content: center; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
-    .footer-links button { color: var(--text); border: 1px solid var(--border); padding: .45rem .65rem; background: color-mix(in srgb, var(--surface), transparent 20%); transition: transform var(--ease), box-shadow var(--ease); cursor:pointer; font: inherit; text-transform: inherit; letter-spacing: inherit; }
-    .footer-links button:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+    .footer-links button, .footer-links a { color: var(--text); border: 1px solid var(--border); width: 40px; height: 40px; display: inline-grid; place-items: center; background: color-mix(in srgb, var(--surface), transparent 20%); transition: transform var(--ease), box-shadow var(--ease); cursor:pointer; font: inherit; text-transform: inherit; letter-spacing: inherit; text-decoration: none; padding: 0; }
+    .footer-links button:hover, .footer-links a:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+    .footer-links a svg { width: 18px; height: 18px; }
+    .footer-contact { font-size: .82rem; letter-spacing: .02em; color: var(--muted); }
+    .footer-contact a { color: var(--text); text-decoration: none; border-bottom: 1px dashed color-mix(in srgb, var(--text), transparent 45%); }
 
     .privacy-bubble {
       max-width: 680px;
@@ -416,12 +419,25 @@
 
   <footer>
     <p>© 2026 YARBLOX.RU — NOT AFFILIATED WITH ROBLOX CORP.</p>
-    <nav class="footer-links" aria-label="Юридическая информация">
+    <nav class="footer-links" aria-label="Социальные сети и юридическая информация">
+      <a href="https://vk.com/yarcoik" target="_blank" rel="noopener noreferrer" aria-label="Yarblox во ВКонтакте">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 7.6c.14-.46.5-.6.96-.6h2.43c.4 0 .58.2.73.56.82 2.03 1.72 3.8 3.46 5.03.54.38.78.35.78-.4V7.61c-.06-.44-.2-.75-.63-.92-.22-.09-.19-.3.02-.38.37-.14.98-.31 1.71-.31h2.75c.52 0 .71.29.71.94v4.96c0 .54.25.72.4.72.4 0 1.34-1.23 2.06-2.63.22-.42.4-.88.58-1.28.14-.31.33-.51.73-.51h2.43c.73 0 .88.37.73.88-.27.87-2.93 4.95-2.93 4.95-.24.38-.33.56 0 .98 0 0 2.05 2.03 2.47 2.72.18.24.34.47.46.7.16.31 0 .63-.57.63h-2.2c-.57 0-.82-.15-1.1-.44-.32-.32-1.27-1.24-1.8-1.24-.53 0-.5.15-.5.9 0 .73-.2.78-.57.78h-1.32c-.83 0-2.04-.2-3.88-2-1.99-1.94-3.09-4.73-3.7-6.56-.12-.35-.03-.6.38-.6Z"/></svg>
+      </a>
+      <a href="https://t.me/yarcoik_live" target="_blank" rel="noopener noreferrer" aria-label="Yarblox в Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-.9.36-.9 1 .17 1.34l4.77 1.49 1.84 5.62c.24.73.4 1.01.86 1.01.35 0 .5-.16.7-.35l2.31-2.25 4.8 3.55c.89.49 1.53.24 1.75-.82l3.17-14.93c.33-1.3-.5-1.89-1.56-1.45ZM9.3 13.8l10.89-6.88c.54-.33 1.03-.15.62.21l-9.31 8.41-.36 3.93-1.84-5.67Z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@yarcoik" target="_blank" rel="noopener noreferrer" aria-label="Yarblox на YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 8.2a3.1 3.1 0 0 0-2.18-2.2C18.88 5.5 12 5.5 12 5.5s-6.88 0-8.82.5A3.1 3.1 0 0 0 1 8.2 32.5 32.5 0 0 0 .5 12c0 1.3.12 2.58.5 3.8a3.1 3.1 0 0 0 2.18 2.2c1.94.5 8.82.5 8.82.5s6.88 0 8.82-.5A3.1 3.1 0 0 0 23 15.8c.38-1.22.5-2.5.5-3.8 0-1.3-.12-2.58-.5-3.8ZM10 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+      </a>
+      <a href="https://discord.gg/jsATUQDpy2" target="_blank" rel="noopener noreferrer" aria-label="Yarblox в Discord">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4.8A16.7 16.7 0 0 0 15.9 3a11.4 11.4 0 0 0-.52 1.07 15.6 15.6 0 0 0-6.76 0A11.5 11.5 0 0 0 8.1 3C6.63 3.25 5.24 3.86 4 4.8 1.5 8.52.81 12.15 1.15 15.74c1.66 1.2 3.29 1.92 4.9 2.39a12 12 0 0 0 1.06-1.73c-.58-.23-1.12-.5-1.63-.82.14-.1.27-.2.4-.3 3.14 1.47 6.54 1.47 9.64 0 .13.11.27.21.4.3-.5.33-1.05.6-1.63.82.3.62.66 1.2 1.06 1.73a16.9 16.9 0 0 0 4.9-2.39c.4-4.17-.67-7.76-3.25-10.94ZM8.7 13.64c-.94 0-1.71-.84-1.71-1.88s.75-1.88 1.7-1.88c.96 0 1.73.85 1.72 1.88 0 1.04-.76 1.88-1.72 1.88Zm6.62 0c-.95 0-1.72-.84-1.72-1.88s.76-1.88 1.72-1.88 1.71.85 1.71 1.88-.76 1.88-1.71 1.88Z"/></svg>
+      </a>
       <button type="button" id="privacy-toggle" aria-expanded="false" aria-controls="privacy-bubble">Политика конфиденциальности</button>
     </nav>
+    <p class="footer-contact">Вопросы и связь: <a href="mailto:yarblox.help@gmail.com">yarblox.help@gmail.com</a></p>
     <section class="privacy-bubble" id="privacy-bubble" hidden>
       <h4>Политика конфиденциальности</h4>
-      <p>Мы сохраняем только технические данные, необходимые для работы сайта (например, выбранную тему оформления в браузере). Мы не продаём и не передаём персональные данные третьим лицам. Для обращений по вопросам конфиденциальности: privacy@yarblox.ru.</p>
+      <p>Мы сохраняем только технические данные, необходимые для работы сайта (например, выбранную тему оформления в браузере). Мы не продаём и не передаём персональные данные третьим лицам. Для обращений по вопросам конфиденциальности: yarblox.help@gmail.com.</p>
     </section>
   </footer>
 
