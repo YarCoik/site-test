@@ -86,14 +86,19 @@
       border: 1px solid var(--border);
       background: var(--text);
       color: var(--bg);
-      padding: .72rem 1.05rem;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
       font: 800 .72rem/1 Montserrat, sans-serif;
       letter-spacing: .09em;
       cursor: pointer;
       transition: transform var(--ease), box-shadow var(--ease);
     }
     .theme-toggle:hover { transform: translateY(-1px); box-shadow: var(--glow); }
-    .theme-toggle .theme-icon { width: 14px; height: 14px; margin-right: .45rem; vertical-align: -2px; display: inline-block; transform-origin: 50% 50%; }
+    .theme-toggle .theme-icon { width: 18px; height: 18px; display: inline-block; transform-origin: 50% 50%; }
     .theme-toggle.is-animating .theme-icon { animation: spin-theme .55s cubic-bezier(.2,.8,.2,1); }
     .theme-toggle:focus-visible, .btn-main:focus-visible, .chip:focus-visible, .footer-links button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -290,7 +295,7 @@
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z" stroke="currentColor" stroke-width="1.5"/><path d="m12 3 9 4.5-9 4.5L3 7.5 12 3Zm0 9v9" stroke="currentColor" stroke-width="1.5"/></svg>
         YARBLOX
       </a>
-      <button class="theme-toggle" id="theme-btn" type="button" aria-label="Переключить тему" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>SHIFT_COLOR</button>
+      <button class="theme-toggle" id="theme-btn" type="button" aria-label="Переключить тему" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg></button>
     </header>
 
     <main>
