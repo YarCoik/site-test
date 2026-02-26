@@ -271,7 +271,7 @@
     @keyframes lift { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-4px);} }
 
     ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
-    .theme-animating::view-transition-new(root) { animation: 680ms cubic-bezier(.4,0,.2,1) both wave-in; }
+    .theme-animating::view-transition-new(root) { animation: 900ms cubic-bezier(.4,0,.2,1) both wave-in; }
     @keyframes wave-in { from { clip-path: circle(0% at var(--x) var(--y)); } to { clip-path: circle(160% at var(--x) var(--y)); } }
 
     @media (max-width: 980px) {
